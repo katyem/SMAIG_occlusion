@@ -3,7 +3,7 @@ library('imager')
 library(xlsx) 
 getwd()
 setwd("D:/R stuff/smaig/SMAIG occlusion/")
-picPath <- "AIG-6/"  ## CHANGE to appropriate image sub-folder
+picPath <- "smaigColor/"  ## CHANGE to appropriate image sub-folder
 im_names <- list.files (path = picPath); #folder with pictures in your working directory
 
 cnt = 1
@@ -15,8 +15,8 @@ for (imName in im_names) {
   cnt = cnt+1; # column cnt: first column is used for color categories/codes
   cntColors = 0; #track the number of colors in this image
   
-  for (x in 1:400) {  # width = 400 pixels
-    for (y in 1:400) {  # height = 400 pixels
+  for (x in 1:width(im)) {  # width 
+    for (y in 1:height(im)) {  # height 
       thisColor <- as.numeric(im[x,y,1,1]) # The color (rounded) of the pixel at location x,y
       #  if ( thisColor != 0) {  # if the color is not black
           #search colorCount for thisColor

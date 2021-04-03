@@ -1,0 +1,35 @@
+
+blue.png
+brown1.png
+chartreuse1.png
+chocolate4.png
+cyan.png
+darkgreen.png
+darkviolet.png
+gray.png
+white.png
+yellow.png
+
+blue
+yellow
+cyan
+chocolate4
+darkgreen
+white
+brown1
+darkviolet
+chartreuse1
+gray
+
+0	0,1
+1	0.2	0.2
+0.498039216	1	0
+0.545098039	0.270588235	0.074509804
+0	1	1
+0	0.4	0
+0.6	0	0.8
+0.8	0.8	0.8
+1	1	1
+1	1	0
+
+Ended up rounding the above numbers to 1 decimal place.
