@@ -46,10 +46,6 @@ for (imName in im_names) {
       thisColor[2] <- round(as.numeric(im[x,y,1,2]),1) # The 2nd color  of the pixel at location x,y
       thisColor[3] <- round(as.numeric(im[x,y,1,3]),1) # The 3rd color  of the pixel at location x,y
       
-      # roll through cubeColor to see if there is a match for this pixel across three channels
-        #if (thisColor[1] != 0 && thisColor[2] != 0 && thisColor[3] != 0) { #skip the search, color is black
-
-
           for (cc in 1:NCOL(cubeColor)) {
             #if (thisColor[1] == cubeColor[1,cc] && thisColor[2] == cubeColor[2,cc] && thisColor[3] == cubeColor[3,cc]) {
             if (thisColor[1] == cubeColor[1,cc] && thisColor[2] == cubeColor[2,cc] && thisColor[3] == cubeColor[3,cc]) {
