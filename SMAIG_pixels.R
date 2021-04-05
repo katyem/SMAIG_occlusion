@@ -2,11 +2,11 @@
 library('imager')
 library(xlsx) 
 getwd()
-setwd("D:/R stuff/smaig/SMAIG occlusion/")
-picPath <- "smaigColor/"  ## CHANGE to appropriate image sub-folder
+setwd("D:/R stuff/SMAIG_occlusion/")
+picPath <- "smaigGray/"  ## CHANGE to appropriate image sub-folder
 im_names <- list.files (path = picPath); #folder with pictures in your working directory
 
-cnt = 0
+cnt = 1
 colorCount <- matrix(ncol = NROW(im_names)+1)  # set up matrix 
 
 for (imName in im_names) {
@@ -45,8 +45,7 @@ colorCount[1,1] <- 0
 
 colorCount <- colorCount[order(colorCount[, 1], decreasing=FALSE),]
 temp = list("Code")
-im_moniker <- append(temp, im_names)
-colnames(colorCount) <- im_moniker
+colnames(colorCount) <- append(temp, im_names)
 
 write.xlsx(colorCount, "colorCount.xlsx", col.names=TRUE, row.names=FALSE) # each column = image; rows = non-black color categories (.1-1); black == 0, white = 1
 
