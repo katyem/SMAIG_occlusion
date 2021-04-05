@@ -2,19 +2,23 @@
 library('imager')
 library(xlsx) 
 getwd()
-setwd("D:/R stuff/smaig/SMAIG occlusion/")
+setwd("D:/R stuff/SMAIG_occlusion/")
 picPath <- "smaigColor/"  ## CHANGE to appropriate image sub-folder
 im_names <- list.files (path = picPath); #folder with pictures in your working directory
 
+
 cnt = 0
-colorCount <- matrix(ncol = NROW(im_names)+1)  # set up matrix 
+colorCount <- matrix(ncol = NROW(im_names))  # set up matrix 
+#colnames(colorCount) <- im_names
+#ncol(colorCount)
+#length(im_names)
 
 for (imName in im_names) {
   temp <- paste(picPath, imName, sep='');  
   im <- load.image(temp);  #sets the name of the image in the loop que
   cnt = cnt+1; # column count
   cntColors = 0; #track the number of colors in this image
-  # plot(im)
+  
   for (x in 1:width(im)) {  # width 
     for (y in 1:height(im)) {  # height 
       thisColor <- as.numeric(im[x,y,1,1]) # The color (rounded) of the pixel at location x,y
@@ -41,14 +45,9 @@ for (imName in im_names) {
 }
 
 
-colorCount[1,1] <- 0
-
 colorCount <- colorCount[order(colorCount[, 1], decreasing=FALSE),]
-temp = list("Code")
-im_moniker <- append(temp, im_names)
-colnames(colorCount) <- im_moniker
 
-write.xlsx(colorCount, "colorCount.xlsx", col.names=TRUE, row.names=FALSE) # each column = image; rows = non-black color categories (.1-1); black == 0, white = 1
+write.xlsx(colorCount, "colorCount.xlsx", col.names=FALSE, row.names=FALSE) # each column = image; rows = non-black color categories (.1-1); black == 0, white = 1
 
 
 
