@@ -1,3 +1,6 @@
+## calculate the percentage of each cube's visibility by using total stack area as the denomiator.
+
+
 ##install.packages('imager')
 library('imager')
 library(xlsx) 
